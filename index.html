@@ -70,12 +70,16 @@
             var curHr = today.getHours();
             var str = "";
 
-            if (curHr < 12) {
+           if (curHr < 5) {
                 str = "Selamat Pagi Nira";
-            } else if (curHr < 18) {
+            } else if (curHr < 15) {
                 str = "Selamat Siang Nira";
-            } else {
+            } else if (curHr < 18) {         
+                str = "Selamat Sore Nira";
+            } else if (curHr < 23) {         
                 str = "Selamat Malam Nira";
+            } else { 
+                str = "Selamat Malam Nira Tidur Dah Malem";
             }
             return str;
         }
