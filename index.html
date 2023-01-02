@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>:)</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="./assets/image/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="./assets/image//favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="./assets/image//favicon-16x16.png">
+    <link rel="manifest" href="./assets/image//site.webmanifest">
+    <link rel="stylesheet" href="./assets/css/style.css">
+
+</head>
+
+<body>
+    <div class="container">
+        <div class="inner-container">
+            <div class="shape">
+
+            </div>
+        </div>
+            <center>
+                <div class="content">
+                    <div class="time" id="time"></div>
+                    <h1><span id="typed-string"></span></h1>
+                    <a href="flower.html">
+                        <button center class="btn">
+                            <span>Coba Pencet</span>
+                        </button>
+                    </a>
+                </div>
+            </center>
+    <!-- partial -->
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js'></script>
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="./assets/js/script.js"></script>
+    <script>
+        // Render Dynamic Time
+        function checkTime(i) {
+            if (i < 10) {
+                i = "0" + i;
+            }
+            return i;
+        }
+
+        function startTime() {
+            var today = new Date();
+            var h = today.getHours();
+            var m = today.getMinutes();
+            var s = today.getSeconds();
+            // add a zero in front of numbers<10
+            m = checkTime(m);
+            s = checkTime(s);
+            document.getElementById("time").innerHTML = h + ":" + m + ":" + s;
+            t = setTimeout(function () {
+                startTime();
+            }, 500);
+        }
+        startTime();
+
+        setTimeout(function () {
+            $(".btn").css({ opacity: "1" });
+        }, 2000);
+
+        // Render Greetings
+        function greetings() {
+            var today = new Date();
+            var curHr = today.getHours();
+            var str = "";
+
+            if (curHr < 12) {
+                str = "Selamat Pagi Nira";
+            } else if (curHr < 18) {
+                str = "Selamat Siang Nira";
+            } else {
+                str = "Selamat Malam Nira";
+            }
+            return str;
+        }
+
+        // Render Typed js
+        let typed = greetings();
+
+        function dynamicTyped(newText) {
+            const dataType = newText;
+
+            const strings = dataType.split(",");
+
+            if (typed && typed.constructor === Typed) {
+                typed.destroy();
+            }
+
+            typed = new Typed("#typed-string", {
+                strings: strings,
+                typeSpeed: 40,
+                delaySpeed: 90,
+                loop: false,
+                showCursor: false,
+            });
+        }
+        dynamicTyped(typed);
+
+    </script>
+
+</body>
+
+</html>

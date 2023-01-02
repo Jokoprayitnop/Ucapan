@@ -1,0 +1,197 @@
+@import url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.css);
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap");
+
+:root {
+  --color-red: #ec1840;
+  --color-purple: #7a18ec;
+  --color-white: #fff;
+  --color-black-1: #111;
+  --color-black-2: #222;
+  --color-black-3: #444;
+  --speed-normal: 0.5s;
+  --speed-fast: 0.8s;
+}
+
+$primary-color: #8123ce;
+$secondary-color: #3a54c6;
+$third-color: #46a7dc;
+
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  box-sizing: border-box;
+  color: #fff;
+  font-family: "Poppins", sans-serif;
+}
+
+.container {
+  width: 100%;
+  height: 100vh;
+  display: block;
+  overflow: hidden;
+  background-image: url(http://kontramax.com/wp-content/uploads/temp/Background.jpg);
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  background-color: #464646;
+  .inner-container {
+    width: 90%;
+    margin: 0 auto;
+  }
+}
+
+.shape {
+  margin: 0 auto;
+  position: relative;
+  opacity: 0.7;
+}
+
+.random-shape:after {
+  font-family: FontAwesome;
+  content: "\f04d";
+}
+
+$circle-size: 100px;
+$colors: #45ffdc, #ffef96, #ff94a1, #cda1ff, #31b4ff, #4800c0, #9300c9;
+$shapes: "\f111", "\f10c", "\f068", "\f22d", "\f077", "\f04b", "\f067", "\f04d";
+$shape-count: 80;
+
+@for $i from 1 through $shape-count {
+  $shape-size: 0.7 + random(10);
+
+  $rotation: random(360);
+  $speed: 40 + random(30);
+  $color-key: random(length($colors));
+  $shape-color: nth($colors, $color-key);
+  $shape-key: random(length($shapes));
+  $shape-type: nth($shapes, $shape-key);
+  $text: random(10);
+
+  @keyframes shape-#{$i} {
+    0% {
+      transform: translate3d(0, 0, 0) rotate(#{$rotation + 0}deg);
+    }
+    100% {
+      transform: translate3d(0, 0, 0) rotate(#{$rotation + 360}deg);
+    }
+  }
+
+  .shape-container--#{$i} {
+    animation: shape-#{$i} #{$speed}s linear infinite;
+
+    .random-shape:after {
+      margin: #{$shape-size}rem;
+      color: $shape-color;
+      font-size: #{$shape-size * 0.2}rem;
+      content: $shape-type;
+    }
+  }
+}
+
+.content {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+.time {
+  font-size: 2.5rem;
+  text-align: center;
+}
+
+a {
+  text-decoration: none;
+}
+
+.btn {
+  width: 180px;
+  height: 60px;
+  cursor: pointer;
+  background: transparent;
+  border: 1px solid #91c9ff;
+  outline: none;
+  // transition: 1s ease-in-out;
+  opacity: 0;
+  transition: opacity 0.5s;
+
+  span {
+    color: white;
+    font-size: 18px;
+    font-weight: 100;
+  }
+}
+
+.btn:hover {
+  transition: 1s ease-in-out;
+  background: #4f95da;
+}
+
+// Responsive
+
+@media screen and (max-device-width: 728px) {
+  .time {
+    font-size: 2.5rem;
+    text-align: center;
+  }
+
+  a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .btn:nth-last-child(1) {
+    margin-top: 10px;
+  }
+
+  h1 {
+    font-size: 2rem;
+    text-align: center;
+  }
+}
+
+@media screen and (max-device-width: 640px) {
+  .time {
+    font-size: 2;
+    text-align: center;
+  }
+
+  a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .btn:nth-last-child(1) {
+    margin-top: 10px;
+  }
+
+  h1 {
+    font-size: 1.5rem;
+    text-align: center;
+  }
+}
+
+@media screen and (max-device-width: 360px) {
+  .time {
+    font-size: 2rem;
+  }
+
+  a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .btn:nth-last-child(1) {
+    margin-top: 10px;
+  }
+
+  h1 {
+    font-size: 1rem;
+  }
+}
