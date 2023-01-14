@@ -15,6 +15,7 @@ $(".deleteRecord").click(function(){
 		function(){
 			window.location.href="/admin/"+deleteFunction+"/"+id;
 		});
+		});
 
 $(document).ready(function () {
   // Render Background Random Shape
