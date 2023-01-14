@@ -11,7 +11,7 @@ window.addEventListener('load', () => {
     cancelButtonText: 'No',
   }).then((result) => {
     if (result.isConfirmed) {
-      document.querySelector('.song').play();
+      document.querySelector('.music').play();
       resolveFetch().then(content());
     } else {
       resolveFetch().then(content());
