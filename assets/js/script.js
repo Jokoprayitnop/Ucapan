@@ -1,5 +1,5 @@
-=// trigger to play music in the background with sweetalert
-window.addEventListener('load', () => {
+// trigger to play music in the background with sweetalert
+window.addEventListener( () => {
   Swal.fire({
     title: 'Do you want to play music in the background?',
     // text: "You won't be able to revert this!",
