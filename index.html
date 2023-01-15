@@ -14,18 +14,17 @@
 </head>
 
 <body>
-    
-    <audio src="assets/audio/tunggu.mp3" type="audio/mp3" class="music" id="music" loop>
+
+    <audio src="assets/audio/tunggu.mp3" type="audio/mp3" class="music" id="music" autoplay loop>
         Ops!! Your browser isn't invited for super fun audio time.
-      </audio>
-    
+    </audio>
+
     <div class="container">
         <div class="inner-container">
             <div class="shape">
 
             </div>
         </div>
-            <center>
                 <div class="content">
                     <div class="time" id="time"></div>
                     <h1><span id="typed-string"></span></h1>
@@ -34,8 +33,11 @@
                             <span>Coba Pencet</span>
                         </button>
                     </a>
+                    <a href="birthdaywishes.html">
+                        <button center class="btn" id="btn_friend">
+                            <span>Pencet lah</span>
+                        </button>
                 </div>
-            </center>
     <!-- partial -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.css"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.js"></script>
@@ -78,18 +80,16 @@
             var curHr = today.getHours();
             var str = "";
 
-           if (curHr < 4) {
-                str = "Selamat Malam Nira Tidur Dah Larut";
-            } else if (curHr < 10) {
+            if (curHr < 5) {
                 str = "Selamat Pagi Nira";
             } else if (curHr < 15) {
                 str = "Selamat Siang Nira";
             } else if (curHr < 18) {         
-                str = "Sore Nira Pulang Kerja Ya?";
+                str = "Selamat Sore Nira";
             } else if (curHr < 23) {         
                 str = "Selamat Malam Nira";
             } else { 
-                str = "Selamat Malam Nira Good Night";
+                str = "Selamat Malam Nira Tidur Dah Malem";
             }
             return str;
         }
