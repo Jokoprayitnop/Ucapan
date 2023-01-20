@@ -9,6 +9,11 @@
     <title>Hehe</title>
 </head>
 <body class="container">
+    
+    <audio src="tunggu.mp3" type="audio/mp3" class="music" id="music" autoplay loop>
+        Ops!! Your browser isn't invited for super fun audio time.
+    </audio>
+    
   <!-- Pembuat code: https://codepen.io/mdusmanansari/pen/BamepLe -->
     <div class="night"></div>
     <div class="flowers">
@@ -307,7 +312,26 @@
         </div>
       </div>
     </div>
+    
+    
     <script src="main.js"></script>
+    <script>
+        var audio = document.querySelector('music'); 
+      if(musik) {
+        audio.src = musik;
+      } 
+    
+      function mulai() { 
+        music.play(); 
+        document.querySelector(".open").style = "opacity: 0;"; 
+        document.querySelector(".body").style = "overflow-y: scroll;"; 
+    
+        setTimeout(function () { 
+          document.querySelector(".open").style.display = "none"; 
+        }, 1000); 
+      } 
+    </script>
+    
     <div class="carousel__snapper">
       <a href="#carousel__slide4"
       class="carousel__prev">Go to last slide</a>
